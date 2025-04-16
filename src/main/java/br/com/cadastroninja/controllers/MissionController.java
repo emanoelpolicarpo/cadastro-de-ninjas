@@ -41,4 +41,11 @@ public class MissionController {
         missionService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseMission> UpdateMission(@PathVariable Long id, @RequestBody RequestMission requestMission) {
+        return missionService.update(id, requestMission)
+                .map(mission -> ResponseEntity.ok(mission))
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

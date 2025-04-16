@@ -29,7 +29,7 @@ public class NinjaMapper {
                 .email(ninja.getEmail())
                 .imgUrl(ninja.getImgUrl())
                 .rank(ninja.getRank())
-                .missons(ninja.getMission())
+                .missions(ninja.getMission())
                 .build();
     }
 }

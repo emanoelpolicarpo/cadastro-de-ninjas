@@ -28,7 +28,7 @@ public class Mission {
     @Enumerated(EnumType.STRING)
     private DifficultyRank difficulty;
 
-    @OneToMany(mappedBy = "mission")
     @JsonIgnore
+    @OneToMany(mappedBy = "mission")
     private List<Ninja> ninjas;
 }

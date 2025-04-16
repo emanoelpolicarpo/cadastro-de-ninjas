@@ -30,12 +30,25 @@ public class MissionService {
 
     }
 
-    public Optional<ResponseMission> getById(Long id){
+    public Optional<ResponseMission> getById(Long id) {
         return repository.findById(id)
                 .map(MissionMapper::toMissionResponse);
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         repository.deleteById(id);
+    }
+
+    public Optional<ResponseMission> update(Long id, RequestMission request) {
+        Optional<Mission> foundMission = repository.findById(id);
+        if (foundMission.isPresent()) {
+            Mission mission = foundMission.get();
+
+            mission.setName(request.name());
+            mission.setDifficulty(request.difficulty());
+            repository.save(mission);
+            return Optional.of(MissionMapper.toMissionResponse(mission));
+        }
+        return Optional.empty();
     }
 }

@@ -38,4 +38,11 @@ public class NinjaController {
         ninjaService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseNinja> UpdateMission(@PathVariable Long id, @RequestBody RequestNinja requestNinja) {
+        return ninjaService.update(id, requestNinja)
+                .map(ninja -> ResponseEntity.ok(ninja))
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

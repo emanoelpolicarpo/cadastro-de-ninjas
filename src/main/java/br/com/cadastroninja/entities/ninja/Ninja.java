@@ -2,6 +2,7 @@ package br.com.cadastroninja.entities.ninja;
 
 import br.com.cadastroninja.entities.mission.Mission;
 import br.com.cadastroninja.entities.ninja.rank.NinjaRank;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +30,7 @@ public class Ninja {
     @Enumerated(EnumType.STRING)
     private NinjaRank rank;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "mission_id")
     private Mission mission;

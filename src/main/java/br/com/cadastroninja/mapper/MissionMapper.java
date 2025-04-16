@@ -25,6 +25,7 @@ public class MissionMapper {
                 .id(mission.getId())
                 .name(mission.getName())
                 .difficulty(mission.getDifficulty())
+                .ninja(mission.getNinjas())
                 .build();
     }
 }
