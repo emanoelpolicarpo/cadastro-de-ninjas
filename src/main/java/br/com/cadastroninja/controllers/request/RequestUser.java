@@ -1,4 +1,7 @@
 package br.com.cadastroninja.controllers.request;
 
-public record RequestUser() {
+import lombok.Builder;
+
+@Builder
+public record RequestUser(String name, String email, String password) {
 }

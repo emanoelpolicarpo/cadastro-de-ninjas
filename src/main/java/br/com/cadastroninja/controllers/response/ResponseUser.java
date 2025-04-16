@@ -1,4 +1,7 @@
 package br.com.cadastroninja.controllers.response;
 
-public record ResponseUser() {
+import lombok.Builder;
+
+@Builder
+public record ResponseUser(Long id, String name, String email) {
 }
